@@ -31,10 +31,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs-extra');
 const path = require('path');
+require("dotenv").config();
+
+const port=process.env.PORT
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
 
 //********************************************************* */
 app.post('/check-path', (req, res) => {
@@ -114,6 +118,6 @@ app.post('/copy-folders', async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
-  console.log("Server is running on port 8000");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
