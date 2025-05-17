@@ -36,10 +36,29 @@ require("dotenv").config();
 const port=process.env.PORT
 
 const app = express();
-app.use(cors({origin : "https://fainal-copy-automation-kq3l.vercel.app/"}));
+//app.use(cors({origin : "https://fainal-copy-automation-kq3l.vercel.app/"}));
+
+
+//********************************************************************* */
+const allowedOrigins = [
+  "http://localhost:5173", // local frontend
+  "https://fainal-copy-automation-kq3l.vercel.app" // deployed frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true
+  })
+);
+
 app.use(bodyParser.json());
-
-
 //********************************************************* */
 app.post('/check-path', (req, res) => {
   console.log(req.body)
