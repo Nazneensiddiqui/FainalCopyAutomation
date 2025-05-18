@@ -237,6 +237,7 @@ const CopyFolderForm = () => {
 
       const data = await res.json();
       setMessage(data.message || 'Copy completed!!');
+      console.log(data.message)
       if (data.details) {
         setCopyDetails(data.details);
       }
