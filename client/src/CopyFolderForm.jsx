@@ -182,7 +182,7 @@ const CopyFolderForm = () => {
         : `${basePath}\\Application\\PublishCode\\${mod}`;
 
     // Call backend to check if the source path exists
-    //  const res = await fetch('http://localhost:8000/check-path', {
+      //const res = await fetch('http://localhost:8000/check-path', {
  const res = await fetch('https://fainalcopyautomation-5.onrender.com/check-path', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -227,7 +227,7 @@ const CopyFolderForm = () => {
     setMessage('');
     setCopyDetails(null);
     try {
-      //  const res = await fetch('http://localhost:8000/copy-folders', {
+        //const res = await fetch('http://localhost:8000/copy-folders', {
        const res = await fetch('https://fainalcopyautomation-5.onrender.com/copy-folders', {
  
         method: 'POST',

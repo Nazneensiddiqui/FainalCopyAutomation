@@ -41,8 +41,8 @@ const app = express();
 
 //********************************************************************* */
 const allowedOrigins = [
-  "http://localhost:5173", // local frontend
-  "https://fainal-copy-automation-kq3l.vercel.app" // deployed frontend
+  "http://localhost:5174", // local frontend
+  "https://fainal-copy-automation-7jnf.vercel.app/" // deployed frontend
 ];
 
 app.use(
