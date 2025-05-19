@@ -27,6 +27,7 @@
 // });
 
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs-extra');
@@ -34,11 +35,6 @@ const path = require('path');
 require("dotenv").config();
 
 const port=process.env.PORT
-
-const app = express();
-//app.use(cors({origin : "https://fainal-copy-automation-kq3l.vercel.app/"}));
-
-
 //********************************************************************* */
 app.use(cors({
   origin: 'https://fainal-copy-automation-7jnf.vercel.app'  
@@ -52,15 +48,12 @@ app.post('/check-path', (req, res) => {
   if (!pathToCheck) {
     return res.status(400).json({ exists: false, message: 'No path provided' });
   }
-
-  const exists = fs.existsSync(pathToCheck);
+ const exists = fs.existsSync(pathToCheck);
   return res.json({ exists });
 });
 
 
 //********************************************************** */
-
-
 
 const getFolderStats = (dirPath) => {
   let totalFiles = 0;
